@@ -1,9 +1,9 @@
 {
-    "src/**/*.{vue,js}": [
+    "src/**/*.{js}": [
       "npm run lint:fix",
       "git add"
     ],
-    "src/**/*.{vue,js,scss}": [
+    "src/**/*.{js,less}": [
       "prettier --write",
       "git add"
     ]

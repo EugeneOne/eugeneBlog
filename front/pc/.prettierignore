@@ -1,4 +1,4 @@
 dist
-build
+script
 node_modules
 package.json
