@@ -10,7 +10,7 @@ import Route from 'react-router-dom/Route'
 class Main extends React.Component {
     render() {
         return (
-            <div className="blog-main">
+            <div className="blog-main clearfix">
                 <Aside />
                 <div className="router-wrap f-left">
                     {routerConfig.map((item, i) => (

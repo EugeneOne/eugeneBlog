@@ -30,6 +30,7 @@ class Nav extends React.Component {
     render() {
         return (
             <Menu
+                className="blog-nav"
                 onSelect={this._select}
                 selectedKeys={[this.state.current]}
                 mode="horizontal"

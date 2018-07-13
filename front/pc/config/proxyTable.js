@@ -1,9 +1,9 @@
 module.exports = {
     '/mock': {
-        target: 'http://his.macmini.com:3000/mock/70',
+        target: 'http://172.20.11.40:9999',
         changeOrigin: true,
         pathRewrite: {
-            '^/mock': '/'
+            '^/mock': '/mock'
         }
     }
 }

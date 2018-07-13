@@ -8,7 +8,6 @@ import 'normalize.css'
 class Page extends Component {
     constructor(props) {
         super(props)
-        console.log(this.props)
         this.pathname = this.props.location.pathname
     }
 

@@ -10,11 +10,6 @@ export default class Layouts extends Component {
             <div className="blog">
                 <MainHeader />
                 <Main />
-                {/* <Layout>
-                    <Sider>Sider</Sider>
-                    <Content>Content</Content>
-                </Layout>
-                <Footer>Footer</Footer> */}
             </div>
         )
     }

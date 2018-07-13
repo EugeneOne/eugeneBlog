@@ -1,5 +1,6 @@
 import Home from '@page/Home/home'
 import ArticleList from '@page/ArticleList/articleList'
+import ArticleDetail from '@page/Article/article'
 
 export default [
     {
@@ -9,5 +10,9 @@ export default [
     {
         path: '/list',
         component: ArticleList
+    },
+    {
+        path: '/article/:id',
+        component: ArticleDetail
     }
 ]
