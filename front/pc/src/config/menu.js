@@ -7,5 +7,9 @@ export default [
     {
         key: '/list',
         title: '全部文章'
+    },
+    {
+        key: '/new',
+        title: '新建文章'
     }
 ]

@@ -7,9 +7,12 @@ import ReactDOM from 'react-dom'
 import { HashRouter } from 'react-router-dom'
 import Page from './page'
 import './common/common.less'
+import day from 'dayjs'
 
 // Create store
 // const store = createStore(counter)
+
+window._dayjs = day
 
 class App extends React.Component {
     render() {
