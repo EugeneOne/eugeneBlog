@@ -11,7 +11,6 @@ class Article extends React.Component {
 
     componentDidMount() {
         this.getArticle(this.props.match.params.id)
-        console.log(this.getCardData(), this.state)
     }
     getArticle(id) {
         http(api.articleDetail, {
@@ -37,7 +36,7 @@ class Article extends React.Component {
                 {/* <p>123{this.state.data}</p> */}
                 <CartItem
                     id={this.getCardData().id}
-                    title={this.getCardData().title}
+                    title={this.state.data.title}
                     content={this.getCardData().content}
                 />
             </div>

@@ -1,6 +1,10 @@
 export default {
-    getAllArticleList: '/mock/11/blog/get_all_article_list',
-    articleDetail: '/mock/11/blog/article_detail',
-    getUserinfo: '/mock/11/blog/get_userinfo',
-    getAllArticle: '/api/get-all-article'
+    // 文章详情
+    articleDetail: '/api/blog/article-detail',
+    // 用户信息
+    getUserinfo: '/api/blog/get-user',
+    // 获取所有文章
+    getAllArticle: '/api/blog/get-all-article',
+    // 新建文章
+    newArticle: '/api/blog/new-article'
 }

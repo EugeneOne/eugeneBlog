@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.config')
 const proxyTable = require('../config/proxyTable')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 function resolve(relatedPath) {
     return path.join(__dirname, relatedPath)
@@ -39,6 +40,17 @@ module.exports = merge(baseWebpackConfig, {
         port: 9090
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin() // 启动热加载功能
+        new webpack.HotModuleReplacementPlugin(), // 启动热加载功能
+        new FriendlyErrorsPlugin({
+            compilationSuccessInfo: {
+                messages: [
+                    `Your application is running here: http://${getIPAddress()}:9090`
+                ]
+            }
+            // ,
+            // onErrors: config.dev.notifyOnErrors
+            //   ? utils.createNotifierCallback()
+            //   : undefined
+        })
     ]
 })

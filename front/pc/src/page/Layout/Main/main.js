@@ -8,11 +8,27 @@ import Route from 'react-router-dom/Route'
 
 @withRouter
 class Main extends React.Component {
+    state = {
+        rightFixed: ''
+    }
+    componentDidMount() {
+        let isFixed = false
+        window.addEventListener('scroll', event => {
+            if (document.documentElement.scrollTop >= 40) {
+                isFixed = 'fixed'
+            } else {
+                isFixed = ''
+            }
+            this.setState({
+                rightFixed: isFixed
+            })
+        })
+    }
     render() {
         return (
-            <div className="blog-main clearfix">
-                <Aside />
-                <div className="router-wrap f-left">
+            <div className="blog_main">
+                {/* <Aside /> */}
+                <div className="router-wrap">
                     {routerConfig.map((item, i) => (
                         <Route
                             key={i}
@@ -22,7 +38,9 @@ class Main extends React.Component {
                         />
                     ))}
                 </div>
-                <Recent />
+                <div className="recent_box">
+                    <Recent propsClass={this.state.rightFixed} />
+                </div>
             </div>
         )
     }

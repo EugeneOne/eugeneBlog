@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `id` INT(8) NOT NULL AUTO_INCREMENT COMMENT '用户id',
     `name` VARCHAR(100) NOT NULL COMMENT '用户名',
     `pass` VARCHAR(100) NOT NULL COMMENT '密码',
+    `avator` VARCHAR(100) COMMENT '头像',
     `create_time` DATETIME NOT NULL COMMENT '创建时间',
     PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8

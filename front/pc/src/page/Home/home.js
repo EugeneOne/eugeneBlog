@@ -11,7 +11,7 @@ class Home extends React.Component {
         itemList: []
     }
     getAllArticle() {
-        http(api.getAllArticleList).then(res => {
+        http(api.getAllArticle).then(res => {
             this.setState({
                 itemList: res.data.data
             })
@@ -37,6 +37,7 @@ class Home extends React.Component {
                 content={item.content}
                 clickToDetail={this.clickToDetail}
                 isMore={true}
+                isFold={true}
             />
         ))
         return <div className="home-content">{cardItem}</div>

@@ -5,8 +5,12 @@ export default [
         icon: 'mail'
     },
     {
-        key: '/list',
-        title: '全部文章'
+        key: '/archives',
+        title: '归档'
+    },
+    {
+        key: '/tags',
+        title: '标签'
     },
     {
         key: '/new',

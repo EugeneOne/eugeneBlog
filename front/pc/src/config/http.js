@@ -4,14 +4,14 @@ axios.defaults.timeout = 80000
 
 axios.interceptors.request.use(
     config => {
-        if (
-            config.method === 'post' ||
-            config.method === 'put' ||
-            config.method === 'delete'
-        ) {
-            // 序列化
-            config.data = qs.stringify(config.data)
-        }
+        // if (
+        //     config.method === 'post' ||
+        //     config.method === 'put' ||
+        //     config.method === 'delete'
+        // ) {
+        //     // 序列化
+        //     config.data = qs.stringify(config.data)
+        // }
         return config
     },
     error => {
