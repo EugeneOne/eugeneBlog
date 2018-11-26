@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Layout from './Layout'
-import 'normalize.css'
+// import 'normalize.css'
 
 // 用来获取url的各种参数
 @withRouter

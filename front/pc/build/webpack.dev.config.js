@@ -1,3 +1,4 @@
+const utils = require('./utils')
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -5,9 +6,11 @@ const baseWebpackConfig = require('./webpack.base.config')
 const proxyTable = require('../config/proxyTable')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-function resolve(relatedPath) {
-    return path.join(__dirname, relatedPath)
-}
+// function resolve(relatedPath) {
+//     return path.join(__dirname, relatedPath)
+// }
+
+console.log('123')
 
 function getIPAddress() {
     const interfaces = require('os').networkInterfaces()
@@ -26,10 +29,12 @@ function getIPAddress() {
     }
 }
 
+console.log(utils.resolve('src'))
+
 module.exports = merge(baseWebpackConfig, {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        contentBase: resolve('../src'),
+        contentBase: utils.resolve('src'),
         // 所有服务器资源采用gzip压缩
         compress: true,
         // 开启模块热替换，实现inline mode模式自动刷新
