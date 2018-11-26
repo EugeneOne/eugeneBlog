@@ -1,3 +1,4 @@
+const utils = require('./utils')
 // 获取当前文件路径
 const path = require('path')
 const webpack = require('webpack')
@@ -6,27 +7,25 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // index.html 模板
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-function resolve(relatedPath) {
-    return path.join(__dirname, relatedPath)
-}
+// function resolve(relatedPath) {
+//     return path.join(__dirname, relatedPath)
+// }
 
 module.exports = {
     mode: 'development',
-    entry: {
-        client: resolve('../src/client.js')
-    },
+    entry: utils.resolve('src/client.js'),
     output: {
-        path: resolve('../'),
+        path: utils.resolve('dist'),
         filename: '[name].[hash:4].js',
         chunkFilename: 'chunks/[name].[hash:4].js'
     },
     resolve: {
         extensions: ['.js', '.json', '.less'],
         alias: {
-            '@': resolve('src'),
-            '@components': resolve('../src/components'),
-            '@page': resolve('../src/page'),
-            '@config': resolve('../src/config')
+            '@': utils.resolve('src'),
+            '@components': utils.resolve('src/components'),
+            '@page': utils.resolve('src/page'),
+            '@config': utils.resolve('src/config')
         }
     },
     module: {
@@ -83,7 +82,7 @@ module.exports = {
             chunkFilename: '[id].css'
         }),
         new HtmlWebpackPlugin({
-            template: resolve('../src/index.html')
+            template: utils.resolve('src/index.html')
         })
     ]
 }
