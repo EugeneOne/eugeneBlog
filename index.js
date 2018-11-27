@@ -73,7 +73,7 @@ api(app)
     }
 
     // 服务器部署需要写上服务器ip，不能localhost
-    app.listen(CONFIG.port, () => {
+    app.listen('80', () => {
         console.log(`Server running at http://127.0.0.1:${CONFIG.port}/`)
     })
 })()
