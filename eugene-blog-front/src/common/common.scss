@@ -1,0 +1,14 @@
+.body {
+    color: #565a5f;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
