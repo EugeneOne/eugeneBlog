@@ -1,4 +1,5 @@
 .DS_Store
-node_modules
 *.log
-front/node_modules
+node_modules
+eugene-blog-front/node_modules
+front/pc/node_modules
