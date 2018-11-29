@@ -1,0 +1,14 @@
+.editcard {
+    padding: 20px;
+    .new-textarea {
+        // height: calc(70vh);
+        width: 100%;
+        min-height: calc(50vh);
+        background: #fff;
+        border: 1px solid #ddd;
+        overflow: auto;
+    }
+    .new-btn {
+        margin-top: 20px;
+    }
+}

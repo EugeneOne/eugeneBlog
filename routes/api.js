@@ -13,8 +13,10 @@ module.exports = app => {
     router.get('/', Home.index)
     // 获取所有文章
     router.get('/api/blog/get-all-article', controller.getAllArticle)
-    // 新建文章
-    router.post('/api/blog/new-article', controller.newArticle)
+    // 新建&&修改文章
+    router.post('/api/blog/edit-article', controller.editArticle)
+    // 新建&&修改文章
+    router.post('/api/blog/delete-article', controller.deleteArticle)
     // 获取用户
     router.get('/api/blog/get-user', controller.getUser)
     // 获取单个文章

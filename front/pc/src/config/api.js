@@ -6,5 +6,7 @@ export default {
     // 获取所有文章
     getAllArticle: '/api/blog/get-all-article',
     // 新建文章
-    newArticle: '/api/blog/new-article'
+    newArticle: '/api/blog/new-article',
+    // 新建&&编辑文章
+    editArticle: '/api/blog/edit-article'
 }

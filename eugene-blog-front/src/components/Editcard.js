@@ -1,25 +1,35 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router-dom'
+import PropsTypes from 'prop-types'
 import api from '@config/api'
 import http from '@config/http'
 import { Input, Button } from 'antd'
-import './new.less'
+import './Editcard.scss'
 
-class New extends React.Component {
+class Editcard extends React.Component {
+    static propsTypes = {
+        clickcancel: PropsTypes.func
+    }
+
+    static defaultProps = {
+        clickcancel: () => {}
+    }
     state = {
+        id: null,
         title: '',
         content: ''
     }
 
     componentDidMount() {
+        this.initState()
         // console.log(this.getCardData(), this.state)
     }
-    getCardData() {
-        return {
-            id: this.state.data.id || '',
-            title: this.state.data.title || '',
-            content: this.state.data.content || ''
-        }
+    initState() {
+        this.setState({
+            id: this.props.id,
+            title: this.props.title,
+            content: this.props.content
+        })
     }
     handleChange = event => {
         let key = event.target.name
@@ -28,9 +38,8 @@ class New extends React.Component {
         })
     }
     submit = () => {
-        console.log(this.state.title, this.state.content)
         let data = {
-            id: '',
+            id: this.state.id,
             title: this.state.title,
             content: this.state.content
         }
@@ -40,9 +49,10 @@ class New extends React.Component {
             // })
         })
     }
+    cancel = () => {}
     render() {
         return (
-            <div className="New">
+            <div className="editcard">
                 <h3>标题</h3>
                 <Input
                     value={this.state.title}
@@ -51,28 +61,30 @@ class New extends React.Component {
                     placeholder="标题"
                 />
                 <h3>正文</h3>
-                {/* <Input
+                <textarea
+                    className="new-textarea"
                     value={this.state.content}
                     name="content"
-                    style={{ height: '100px' }}
                     onChange={this.handleChange}
-                    type="textarea"
-                    placeholder=""
-                /> */}
-                <div
-                    className="new-textarea"
-                    contentEditable="plaintext-only"
-                    onInput={this.handleChange}
+                />
+                <Button
+                    className="new-btn"
+                    type="primary"
+                    onClick={this.submit}
+                    style={{ marginRight: '24px' }}
                 >
-                    {/* {this.state.content} */}
-                </div>
-                <h3> </h3>
-                <Button type="primary" onClick={this.submit}>
                     提交
+                </Button>
+                <Button
+                    className="new-btn"
+                    type="primary"
+                    onClick={this.props.clickcancel}
+                >
+                    取消
                 </Button>
             </div>
         )
     }
 }
 
-export default New
+export default Editcard
