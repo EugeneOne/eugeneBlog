@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, browserHistory, withRouter } from 'react-router-dom'
-import './main.less'
+import './main.scss'
 import Aside from '../components/Aside/aside'
 import Recent from '../components/Recent/recent'
 import routerConfig from '@config/routerConfig'

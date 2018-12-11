@@ -40,26 +40,26 @@ axios.interceptors.response.use(
     },
     error => {
         console.log('err' + error)
-        if (error.response.status === 403) {
-            router.push({
-                path: '/error/403'
-            })
-        }
-        if (error.response.status === 500) {
-            router.push({
-                path: '/error/500'
-            })
-        }
-        if (error.response.status === 502) {
-            router.push({
-                path: '/error/502'
-            })
-        }
-        if (error.response.status === 404) {
-            router.push({
-                path: '/error/404'
-            })
-        }
+        // if (error.response.status === 403) {
+        //     router.push({
+        //         path: '/error/403'
+        //     })
+        // }
+        // if (error.response.status === 500) {
+        //     router.push({
+        //         path: '/error/500'
+        //     })
+        // }
+        // if (error.response.status === 502) {
+        //     router.push({
+        //         path: '/error/502'
+        //     })
+        // }
+        // if (error.response.status === 404) {
+        //     router.push({
+        //         path: '/error/404'
+        //     })
+        // }
         return Promise.reject(error)
     }
 )

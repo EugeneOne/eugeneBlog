@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './recent.less'
+import './recent.scss'
 
 class Recent extends Component {
     constructor(props) {

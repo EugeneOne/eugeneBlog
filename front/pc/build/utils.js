@@ -18,6 +18,7 @@ exports.resolve = function(dir) {
 exports.styleLoaders = function(options) {
     const output = []
     const loaders = exports.cssLoaders(options)
+    console.log(loaders)
     for (const extension in loaders) {
         const loader = loaders[extension]
         output.push({
@@ -60,17 +61,20 @@ exports.cssLoaders = function(options) {
                 })
             })
         }
-        // if (loader === 'less') {
-        //     loaders.push({
-        //         loader: 'sass-resources-loader'
-        //     })
-        // }
+        if (loader === 'less' || loader === 'scss') {
+            loaders.push({
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: exports.resolve('src/assets/theme.less')
+                }
+            })
+        }
         // Extract CSS when that option is specified
         // (which is the case during production build)
         if (options.extract) {
             return [MiniCssExtractPlugin.loader].concat(loaders)
         } else {
-            return ['vue-style-loader'].concat(loaders)
+            return ['style-loader'].concat(loaders)
         }
     }
 

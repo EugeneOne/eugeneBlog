@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './aside.less'
+import './aside.scss'
 import api from '@config/api'
 import http from '@config/http'
 

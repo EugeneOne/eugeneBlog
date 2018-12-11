@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+// import 'babel-polyfill'
 import React from 'react'
 // import { createStore, bindActionCreators } from 'redux'
 import ReactDOM from 'react-dom'
@@ -6,8 +6,9 @@ import ReactDOM from 'react-dom'
 //import Routes from './routes'
 import { HashRouter } from 'react-router-dom'
 import Page from './page'
-import './common/common.less'
+import './common/common.scss'
 import day from 'dayjs'
+import './index.scss'
 
 // Create store
 // const store = createStore(counter)
@@ -23,5 +24,17 @@ class App extends React.Component {
         )
     }
 }
+if (module.hot) {
+    module.hot.accept(() => {
+        ReactDom.render(<App />, document.getElementById('root'))
+    })
+}
 
 ReactDOM.render(<App />, document.getElementById('root'))
+
+// ,
+//   "babel": {
+//     "presets": [
+//       "react-app"
+//     ]
+//   }

@@ -3,7 +3,7 @@ import CartItem from '@components/card'
 import { Link, browserHistory, withRouter } from 'react-router-dom'
 import http from '@config/http'
 import api from '@config/api'
-import './home.less'
+import './home.scss'
 
 @withRouter
 class Home extends React.Component {
@@ -24,7 +24,6 @@ class Home extends React.Component {
         var data = { id: 3, name: 'sam', age: 36 }
         this.props.history.push({
             pathname: '/article/' + value
-            // search: '?data=123'
         })
     }
     render() {

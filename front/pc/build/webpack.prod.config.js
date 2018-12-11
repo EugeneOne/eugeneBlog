@@ -21,7 +21,7 @@ htmlWebpackPlugins.push(
         filename: 'index.html',
         template: 'index.html',
         inject: true,
-        chunks: ['vendors', 'index'],
+        // chunks: ['vendors'],
         minify: {
             removeComments: true,
             collapseWhitespace: true,
@@ -41,22 +41,26 @@ htmlWebpackPlugins.push(
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: 'production',
-    // module: {
-    //     rules: utils.styleLoaders({
-    //         sourceMap: shouldUseSourceMap,
-    //         extract: true,
-    //         usePostCSS: true,
-    //         minimize: true
-    //     })
-    // },
     devtool: shouldUseSourceMap ? 'hidden-source-map' : false,
     output: {
         filename: utils.assetsPath('js/[name]_[chunkhash:7].js'),
         chunkFilename: utils.assetsPath('js/[id]_[chunkhash:7].js')
     },
+    module: {
+        rules: utils.styleLoaders({
+            sourceMap: shouldUseSourceMap,
+            extract: true,
+            usePostCSS: true,
+            minimize: true
+        })
+    },
     optimization: {
         splitChunks: {
+            // 'all'表示所有类型的chunks都优化
             chunks: 'all',
+            // 按需加载时，最大能并行加载的数量
+            // maxAsyncRequests: '',
+            // 自动基于配置生成chunk名
             name: true,
             cacheGroups: {
                 default: {
@@ -79,21 +83,6 @@ const webpackConfig = merge(baseWebpackConfig, {
                     },
                     priority: -10,
                     reuseExistingChunk: true
-                },
-                commons: {
-                    name: 'commons',
-                    chunks: 'initial',
-                    minChunks: 2,
-                    test: function(module) {
-                        return (
-                            module.resource &&
-                            module.resource.startsWith(
-                                path.join(__dirname, '../src')
-                            )
-                        )
-                    },
-                    priority: -5,
-                    reuseExistingChunk: true
                 }
             }
         }
@@ -115,10 +104,6 @@ const webpackConfig = merge(baseWebpackConfig, {
                 to: 'static'
             }
         ])
-        // ,
-        // new SkeletonWebpackPlugin({
-        //     webpackConfig: require('./webpack.skeleton.conf')
-        // })
     ],
     stats: {
         entrypoints: false,

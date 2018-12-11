@@ -13,14 +13,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: utils.resolve('src/client.js'),
+    entry: utils.resolve('src/index.js'),
     output: {
         path: utils.resolve('dist'),
         filename: '[name].[hash:4].js',
         chunkFilename: 'chunks/[name].[hash:4].js'
     },
     resolve: {
-        extensions: ['.js', '.json', '.less'],
+        extensions: ['.js', '.json', '.less', 'jsx'],
         alias: {
             '@': utils.resolve('src'),
             '@components': utils.resolve('src/components'),
@@ -34,7 +34,12 @@ module.exports = {
                 test: /\.(js|jsx|mjs)$/,
                 loader: 'babel-loader',
                 // 哪些文件夹不需要babel-loader
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                query: {
+                    plugins: [
+                        ['import', [{ libraryName: 'antd', style: 'css' }]]
+                    ]
+                }
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -51,38 +56,18 @@ module.exports = {
                     limit: 10000,
                     name: 'fonts/[name]_[hash:7].[ext]'
                 }
-            },
-            {
-                test: /\.css/,
-                // use: [MiniCssExtractPlugin.loader, 'css-loader']
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true, // 指定启用css modules
-                            localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
             }
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        }),
+        // new MiniCssExtractPlugin({
+        //     // Options similar to the same options in webpackOptions.output
+        //     // both options are optional
+        //     filename: '[name].css',
+        //     chunkFilename: '[id].css'
+        // }),
         new HtmlWebpackPlugin({
-            template: utils.resolve('src/index.html')
+            template: utils.resolve('index.html')
         })
     ]
 }

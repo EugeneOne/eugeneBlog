@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router-dom'
 import Nav from './nav'
-import './header.less'
+import './header.scss'
 
 class Header extends React.Component {
     render() {
