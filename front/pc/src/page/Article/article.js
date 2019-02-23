@@ -19,7 +19,7 @@ class Article extends React.Component {
             }
         }).then(res => {
             this.setState({
-                data: res.data.data
+                data: res.data
             })
         })
     }

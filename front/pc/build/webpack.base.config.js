@@ -37,7 +37,7 @@ module.exports = {
                 exclude: /node_modules/,
                 query: {
                     plugins: [
-                        ['import', [{ libraryName: 'antd', style: 'css' }]]
+                        ['import', [{ libraryName: 'antd', style: 'true' }]]
                     ]
                 }
             },

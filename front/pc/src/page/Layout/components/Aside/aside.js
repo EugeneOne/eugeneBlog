@@ -11,7 +11,7 @@ class Aside extends Component {
     }
     getUserInfo() {
         http(api.getUserinfo).then(res => {
-            const data = res.data.data
+            const data = res.data
             this.setState({
                 name: data.name,
                 title: data.title,

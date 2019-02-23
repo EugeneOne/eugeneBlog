@@ -1,0 +1,17 @@
+.home_side-profile {
+    width: 330px;
+    background: #fff;
+    transitio: all 0.2s;
+    padding: 20px;
+    // position: absolute;
+    // right: 0;
+    .home_side-profile-tag_title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+.fixed {
+    position: fixed;
+    top: 58px;
+    // right: calc(~'(100vw - 1100px)/2');
+}

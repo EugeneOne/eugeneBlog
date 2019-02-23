@@ -6,6 +6,8 @@ const baseWebpackConfig = require('./webpack.base.config')
 const proxyTable = require('../config/proxyTable')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 // function resolve(relatedPath) {
 //     return path.join(__dirname, relatedPath)
@@ -41,7 +43,7 @@ module.exports = merge(baseWebpackConfig, {
         proxy: proxyTable,
         host: getIPAddress(),
         historyApiFallback: false,
-        port: 9090,
+        port: 9099,
         stats: {
             entrypoints: false,
             children: false
@@ -61,6 +63,7 @@ module.exports = merge(baseWebpackConfig, {
         //     template: 'index.html',
         //     inject: true
         // }),
+        // new BundleAnalyzerPlugin(),
         new FriendlyErrorsPlugin({
             compilationSuccessInfo: {
                 messages: [

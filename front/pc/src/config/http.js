@@ -36,7 +36,7 @@ axios.interceptors.response.use(
             console.log('responseing')
             // return Promise.reject(new Error(response.data.msg))
         }
-        return response
+        return response.data
     },
     error => {
         console.log('err' + error)

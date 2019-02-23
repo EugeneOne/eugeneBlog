@@ -2,9 +2,10 @@ const { mysqlQuery } = require('../db/async-db')
 
 const article = {
     // 获取所有文章
-    findAllArticle() {
-        let _sql =
-            'SELECT * FROM article  where status=1 order by update_time desc;'
+    findAllArticle(num) {
+        let _sql = `SELECT * FROM article  where status=1 order by update_time desc ${
+            num ? `limit ${num}` : ''
+        };`
         return mysqlQuery(_sql)
     },
     // 新增文章

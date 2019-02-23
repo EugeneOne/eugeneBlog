@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom'
 // import { Provider } from 'react-redux'
 //import Routes from './routes'
 import { HashRouter } from 'react-router-dom'
-import Page from './page'
 import './common/common.scss'
 import day from 'dayjs'
-import './index.scss'
+import './index.less'
+import Page from './page'
 
 // Create store
 // const store = createStore(counter)

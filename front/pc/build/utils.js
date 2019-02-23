@@ -64,6 +64,9 @@ exports.cssLoaders = function(options) {
         if (loader === 'less' || loader === 'scss') {
             loaders.push({
                 loader: 'sass-resources-loader',
+                // options: {
+                //     resources: exports.resolve('src/assets/theme.less')
+                // }
                 options: {
                     resources: exports.resolve('src/assets/theme.less')
                 }

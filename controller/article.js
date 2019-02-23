@@ -3,13 +3,13 @@ const model = require('../model/article')
 
 const article = {
     getAllArticle: async (ctx, next) => {
-        await model.findAllArticle().then(res => {
+        let { num } = ctx.request.query
+        await model.findAllArticle(num).then(res => {
             ctx.body = { status: 0, data: res }
         })
     },
     deleteArticle: async ctx => {
         let { id } = ctx.request.body
-        console.log('id:', id)
         if (!id) {
             ctx.body = {
                 code: 200,

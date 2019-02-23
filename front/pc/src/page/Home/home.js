@@ -13,7 +13,7 @@ class Home extends React.Component {
     getAllArticle() {
         http(api.getAllArticle).then(res => {
             this.setState({
-                itemList: res.data.data
+                itemList: res.data
             })
         })
     }

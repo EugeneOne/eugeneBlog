@@ -43,7 +43,6 @@ class Card extends React.Component {
     }
 
     render() {
-        console.log(this.props.clickToDetail)
         return (
             <article className="card-item">
                 {!this.state.isEdit && (
@@ -83,7 +82,7 @@ class Card extends React.Component {
                                 </div>
                             )}
                         </header>
-                        <div className="card_content">
+                        {/* <div className="card_content">
                             <div
                                 className={`content_txt ${
                                     this.props.isFold ? 'content--flod' : ''
@@ -92,7 +91,7 @@ class Card extends React.Component {
                                     this.props.content
                                 )}
                             />
-                        </div>
+                        </div> */}
                         {this.props.isMore && (
                             <div className="card_more_link">查看更多</div>
                         )}
