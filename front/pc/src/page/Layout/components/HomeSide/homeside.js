@@ -5,7 +5,6 @@ import './homeside.scss'
 import api from '@config/api'
 import http from '@config/http'
 
-const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports']
 const Search = Input.Search
 const CheckableTag = Tag.CheckableTag
 const TabPane = Tabs.TabPane
@@ -14,7 +13,8 @@ class Recent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedTag: '',
+            selectedTagId: 0,
+            tags: [],
             recentArticle: []
         }
     }
@@ -30,20 +30,29 @@ class Recent extends Component {
             })
         })
     }
+    // 获取所有标签
+    getAllTags() {
+        http(api.getAllTags).then(res => {
+            this.setState({
+                tags: res.data
+            })
+        })
+    }
     componentDidMount() {
         this.getRecentArticle()
+        this.getAllTags()
     }
 
     searchArticle = e => {
         console.log(e.target.value)
     }
     // 点击相关标签
-    tagCheck(tag, checked) {
-        const { selectedTag } = this.state
-        console.log(tag, checked)
-        const nextSelectedTag = tag
+    tagCheck(tagId, checked) {
+        const { selectedTagId } = this.state
+        console.log(tagId, checked)
+        const nextSelectedTag = tagId
         console.log('You are interested in: ', nextSelectedTag)
-        this.setState({ selectedTag: nextSelectedTag })
+        this.setState({ selectedTagId: nextSelectedTag })
     }
     // 切换最近更新
     tagRecent = e => {}
@@ -55,7 +64,7 @@ class Recent extends Component {
         // })
     }
     render() {
-        const { recentArticle } = this.state
+        const { recentArticle, tags } = this.state
         return (
             <aside
                 className={'home_side-profile f-right ' + this.props.propsClass}
@@ -74,18 +83,27 @@ class Recent extends Component {
                             相关标签
                         </div>
                         <div className="home_side-profile-tag-box">
-                            <h6 style={{ marginRight: 8, display: 'inline' }}>
-                                全部标签:
-                            </h6>
-                            {tagsFromServer.map(tag => (
+                            {/* <h6 style={{ marginRight: 8, display: 'inline' }}>
+                                
+                            </h6> */}
+                            <CheckableTag
+                                checked={this.state.selectedTagId === 0}
+                                onChange={checked => this.tagCheck(0, checked)}
+                            >
+                                全部标签
+                            </CheckableTag>
+                            {tags.map(tag => (
                                 <CheckableTag
-                                    key={tag}
-                                    checked={this.state.selectedTag === tag}
+                                    color="#aae4c4"
+                                    key={tag.id}
+                                    checked={
+                                        this.state.selectedTagId === tag.id
+                                    }
                                     onChange={checked =>
-                                        this.tagCheck(tag, checked)
+                                        this.tagCheck(tag.id, checked)
                                     }
                                 >
-                                    {tag}
+                                    {tag.value}
                                 </CheckableTag>
                             ))}
                         </div>

@@ -29,6 +29,11 @@ const article = {
     findArticleById(id) {
         let _sql = 'select * from article where id=?;'
         return mysqlQuery(_sql, id)
+    },
+    // 获取所有标签
+    getAllTags() {
+        let _sql = 'select * from article_tags;'
+        return mysqlQuery(_sql)
     }
 }
 

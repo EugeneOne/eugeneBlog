@@ -26,6 +26,9 @@ class Home extends React.Component {
             pathname: '/article/' + value
         })
     }
+    formatDate(time) {
+        return _dayjs(time).format('YYYY-MM-DD HH:mm ddd')
+    }
     render() {
         const list = this.state.itemList
         const cardItem = list.map((item, i) => (
@@ -35,6 +38,7 @@ class Home extends React.Component {
                 title={item.title}
                 content={item.content}
                 clickToDetail={this.clickToDetail}
+                updateTime={this.formatDate(item.create_time)}
                 isMore={true}
                 isFold={true}
             />

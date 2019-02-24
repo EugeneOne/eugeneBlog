@@ -12,6 +12,9 @@ class Nav extends React.Component {
         current: ''
     }
     componentDidMount() {
+        this.setState({
+            current: this.props.location.pathname
+        })
         console.log(this.props)
     }
     _select = e => {

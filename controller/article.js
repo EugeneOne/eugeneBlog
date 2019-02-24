@@ -61,6 +61,11 @@ const article = {
         await model.findArticleById(id).then(res => {
             ctx.body = { status: 0, data: res[0] }
         })
+    },
+    getAllTags: async ctx => {
+        await model.getAllTags().then(res => {
+            ctx.body = { status: 0, data: res }
+        })
     }
 }
 

@@ -21,5 +21,7 @@ module.exports = app => {
     router.get('/api/blog/get-user', controller.getUser)
     // 获取单个文章
     router.get('/api/blog/article-detail', controller.articleDetail)
+    // 获取所有标签
+    router.get('/api/blog/get-all-tags', controller.getAllTags)
     app.use(router.routes()).use(router.allowedMethods())
 }

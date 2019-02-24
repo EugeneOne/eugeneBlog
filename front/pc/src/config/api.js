@@ -10,5 +10,7 @@ export default {
     // 新建&&修改文章
     editArticle: '/api/blog/edit-article',
     // 删除文章
-    deleteArticle: '/api/blog/delete-article'
+    deleteArticle: '/api/blog/delete-article',
+    // 获取所有标签
+    getAllTags: '/api/blog/get-all-tags'
 }

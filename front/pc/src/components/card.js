@@ -95,7 +95,9 @@ class Card extends React.Component {
                         {this.props.isMore && (
                             <div className="card_more_link">查看更多</div>
                         )}
-                        <footer className="card-footer" />
+                        <footer className="card-footer">
+                            {this.props.updateTime}
+                        </footer>
                     </div>
                 )}
                 {this.state.isEdit && (
